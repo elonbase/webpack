@@ -20,13 +20,17 @@ function resolve (dir) {
 }){{/lint}}
 
 module.exports = {
-  context: path.resolve(__dirname, '../'),
+  context: path.resolve(__dirname, 'dist'),
   entry: {
-    app: './src/main.js'
+    app: [
+      './src/main.js',
+      './src/static/css/shared.css',
+      './src/static/css/normalize.min.css'
+    ]
   },
   output: {
     path: config.build.assetsRoot,
-    filename: '[name].js',
+    filename: '[name].[hash].js',
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath

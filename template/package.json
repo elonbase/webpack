@@ -26,11 +26,14 @@
   },
   "dependencies": {
     "vue": "^2.5.2"{{#router}},
-    "vue-router": "^3.0.1"{{/router}}
+    "vue-router": "^3.0.1",{{/router}}{{#vuex}},
+    "vuex": "^3.0.1"{{/vuex}}
   },
   "devDependencies": {
+    "axios": "^0.16.2",
+    "browser-cookies": "^1.1.0",
     {{#lint}}
-    "babel-eslint": "^8.2.1",
+    "babel-eslint": "^8.2.1",    
     "eslint": "^4.15.0",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",

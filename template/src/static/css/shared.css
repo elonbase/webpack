@@ -1,0 +1,9 @@
+html,body {
+    height: 100%;
+    font-family: "Microsoft YaHei",sans-serif;
+}
+
+p,ul {
+    margin: 0;
+    padding: 0;
+}
