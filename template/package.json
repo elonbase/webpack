@@ -31,7 +31,6 @@
   },
   "devDependencies": {
     "axios": "^0.16.2",
-    "browser-cookies": "^1.1.0",
     {{#lint}}
     "babel-eslint": "^8.2.1",    
     "eslint": "^4.15.0",
