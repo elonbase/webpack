@@ -21,7 +21,7 @@
     {{/if_or}}
     {{#lint}}
     "lint": "eslint --ext .js,.vue src{{#unit}} test/unit{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}",
-    "lint:fix": "eslint --ext .js,.vue src{{#unit}} test/unit{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}} --fix"
+    "lint:fix": "eslint --ext .js,.vue src{{#unit}} test/unit{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}} --fix",
     {{/lint}}
     "build": "node webpack/build.js"
   },
