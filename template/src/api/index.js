@@ -1,8 +1,4 @@
-const baseURL = 'http://dev.cac.admin.back.octodata.com.cn/'
-import { Loading } from 'element-ui'
-
-import Vue from 'vue'
-Vue.use(Loading)
+const baseURL = ''    //base api url
 
 var axios = require('axios').create({
   baseURL:baseURL,
@@ -13,23 +9,18 @@ var axios = require('axios').create({
   }
 })
 
-var loadingIns = null
 
 //global axios interceptor
 axios.interceptors.request.use(function(config) {
-  loadingIns = Loading.service({ fullscreen: true })
   return config;
 }, function (error) {
-  loadingIns.close()
   return Promise.reject(error);
 });
 
 axios.interceptors.response.use(function (response) {
   // Do something with response data
-  loadingIns.close()
   return response;
 }, function (error) {
-  loadingIns.close()
   return Promise.reject(error);
 });
 
