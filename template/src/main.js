@@ -36,9 +36,9 @@ new Vue({
   {{/if_eq}}
   {{#if_eq build "standalone"}}
   components: { App },
-  template: '<App/>',
   data: {
     eventHub: new Vue() //global event bus
-  }
+  },
+  template: '<App/>'  
   {{/if_eq}}
 })
