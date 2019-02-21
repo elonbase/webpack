@@ -214,7 +214,7 @@ module.exports = {
     if (data.useCommitizen) {
       installCommitizen(cwd, data, green)
         .then(() => {
-          initCZCommitizen(data, green)
+          initCZCommitizen(cwd, data, green)
         })
         .catch(e => {
           console.log(chalk.red('Error:'), e)
