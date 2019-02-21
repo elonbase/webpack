@@ -1,4 +1,4 @@
-const baseURL = ''    //base api url
+var baseURL = ''    //base api url
 {{#multipleServer}}
 // eslint-disable-next-line no-undef 
 baseURL = _API_   
