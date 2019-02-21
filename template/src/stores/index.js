@@ -1,7 +1,15 @@
-import data from './data'
+import Vue from 'vue'
+import Vuex from 'vuex'
+import app from './modules/app'
+import getters from './getters'
 
-export default {
+Vue.use(Vuex)
+
+const store = new Vuex.Store({
   modules: {
-    data
-  }
-}
+    app
+  },
+  getters
+})
+
+export default store

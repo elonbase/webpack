@@ -12,6 +12,7 @@ import App from './App'
 import router from './router'
 {{/router}}
 import * as filters from './filters'
+import '@/permission' // permission control
 
 Vue.config.productionTip = false
 //注册filter
