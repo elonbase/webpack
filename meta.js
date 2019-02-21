@@ -210,10 +210,7 @@ module.exports = {
     }
 
     if (data.useCommitizen) {
-      installDependencies(cwd, data.useCommitizen, green)
-        .then(() => {
-          return installCommitizen(cwd, data, green)
-        })
+      installCommitizen(cwd, data, green)
         .then(() => {
           initCZCommitizen(data, green)
         })
