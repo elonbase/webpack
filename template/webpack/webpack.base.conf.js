@@ -8,6 +8,30 @@ function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
+{{#multipleServer}}
+
+var apiHost
+var setupAPI = function() {
+  console.log('process.env.NODE_ENV:' + process.env.NODE_ENV)
+  switch (process.env.NODE_ENV) {
+    case 'development':
+      apiHost = "'http://g.d.dacube.cn:98/APP-MANAGE-SV-4J/'" //开发环境api地址
+      break;
+    case 'test':
+      apiHost = "'https://g.t.dacube.cn/APP-MANAGE-SV-4J/'" //测试环境api地址
+      break;
+    case 'production':
+      apiHost = "'https://g.dacube.cn/APP-MANAGE-SV-4J/'" //正式环境api地址
+      break;  
+    default:
+      apiHost = "'http://g.d.dacube.cn:98/APP-MANAGE-SV-4J/'" //未指定NODE_ENV时的api地址
+      break;
+  }
+}
+setupAPI()
+
+{{/multipleServer}}
+
 {{#lint}}const createLintingRule = () => ({
   test: /\.(js|vue)$/,
   loader: 'eslint-loader',
@@ -96,5 +120,10 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty'
-  }
+  }{{#multipleServer}},
+  plugins:[
+    new webpack.DefinePlugin({
+      _API_:apiHost
+    })
+  ]{{/multipleServer}}
 }

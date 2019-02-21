@@ -106,6 +106,11 @@ module.exports = {
         },
       ],
     },
+    multipleServer:{
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'multiple server build?',
+    },
     unit: {
       when: 'isNotTest',
       type: 'confirm',
