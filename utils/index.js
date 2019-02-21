@@ -61,6 +61,22 @@ exports.runLintFix = function runLintFix(cwd, data, color) {
   return Promise.resolve()
 }
 
+exports.installCommitizen = function initCommitizen(cwd, data, color) {
+  console.log('# =============installing commitizen===========\n')
+  var args = ['install','-g','commitizen']
+  return runCommand('npm', args, {
+    cwd,
+  })
+}
+
+exports.initCZCommitizen = function initCZCommitizen(cwd, data, color) {
+  console.log('# =============init  cz-conventional-changelog===========\n')
+  var args = ['init', 'cz-conventional-changelog', '--save', '--save-exact']
+  return runCommand('commitizen', args, {
+    cwd,
+  })
+}
+
 /**
  * Prints the final message with instructions of necessary next steps.
  * @param {Object} data Data from questionnaire.

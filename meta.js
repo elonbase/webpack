@@ -166,6 +166,11 @@ module.exports = {
         },
       ],
     },
+    useCommitizen:{
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'use Commitizen to commit code?',
+    }
   },
   filters: {
     '.eslintrc.js': 'lint',
@@ -202,6 +207,19 @@ module.exports = {
         })
     } else {
       printMessage(data, chalk)
+    }
+
+    if (data.useCommitizen) {
+      installDependencies(cwd, data.useCommitizen, green)
+        .then(() => {
+          return installCommitizen(cwd, data, green)
+        })
+        .then(() => {
+          initCZCommitizen(data, green)
+        })
+        .catch(e => {
+          console.log(chalk.red('Error:'), e)
+        })
     }
   },
 }
