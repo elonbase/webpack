@@ -175,6 +175,7 @@ module.exports = {
     'test/unit/setup.js': "unit && runner === 'jest'",
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',
+    'src/stores/**/*':'vuex'
   },
   complete: function(data, { chalk }) {
     const green = chalk.green
