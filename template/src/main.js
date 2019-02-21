@@ -15,7 +15,7 @@ import * as filters from './filters'
 import '@/permission' // permission control
 
 Vue.config.productionTip = false
-//注册filter
+// 注册filter
 Object.keys(filters).forEach(k => Vue.filter(k, filters[k]))
 
 {{#vuex}}
@@ -39,7 +39,7 @@ new Vue({
   components: { App },
   template: '<App/>',
   data: {
-    eventHub: new Vue() //global event bus
+    eventHub: new Vue() // global event bus
   }
   {{/if_eq}}
 })
