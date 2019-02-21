@@ -6,6 +6,8 @@ const {
   installDependencies,
   runLintFix,
   printMessage,
+  installCommitizen,
+  initCZCommitizen
 } = require('./utils')
 const pkg = require('./package.json')
 
