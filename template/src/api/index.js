@@ -1,4 +1,8 @@
-const baseURL = ''    //base api url
+var baseURL = ''    //base api url
+{{#multipleServer}}
+// eslint-disable-next-line no-undef 
+baseURL = _API_   
+{{/multipleServer}}
 
 var axios = require('axios').create({
   baseURL:baseURL,
