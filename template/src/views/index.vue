@@ -1,3 +1,11 @@
 <template>
-  <div>首页</div>
+  <hello-world></hello-world>
 </template>
+
+<script>
+import HelloWorld from '@/components/HelloWorld'
+
+export default {
+  components: { HelloWorld }
+}
+</script>
