@@ -2,6 +2,7 @@
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
+const { VueLoaderPlugin } = require('vue-loader')
 const vueLoaderConfig = require('./vue-loader.conf')
 
 function resolve (dir) {
@@ -22,7 +23,7 @@ var setupAPI = function() {
       break;
     case 'production':
       apiHost = "'https://g.dacube.cn/APP-MANAGE-SV-4J/'" //正式环境api地址
-      break;  
+      break;
     default:
       apiHost = "'http://g.d.dacube.cn:98/APP-MANAGE-SV-4J/'" //未指定NODE_ENV时的api地址
       break;
@@ -122,6 +123,7 @@ module.exports = {
     child_process: 'empty'
   }{{#multipleServer}},
   plugins:[
+    new VueLoaderPlugin(),
     new webpack.DefinePlugin({
       _API_:apiHost
     })
