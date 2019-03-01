@@ -29,7 +29,7 @@ service.interceptors.response.use(
     /**
      * code为非200时抛错 可结合自己业务进行修改
      */
-    if (code !== 200) {
+    if (response.data.code !== 200) {
       // error处理
       return Promise.reject(response.data)
     } else {
