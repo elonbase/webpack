@@ -24,7 +24,7 @@ const store = new Vuex.Store(stores)
 {{/vuex}}
 
 /* eslint-disable no-new */
-new Vue({
+const vRouter = new Vue({
   el: '#app',
   {{#router}}
   router,
@@ -42,4 +42,8 @@ new Vue({
   },
   template: '<App/>'
   {{/if_eq}}
+})
+
+Vue.use({
+  vRouter
 })

@@ -71,9 +71,8 @@ const webpackConfig = merge(baseWebpackConfig, {
         removeAttributeQuotes: true
         // more options:
         // https://github.com/kangax/html-minifier#options-quick-reference
-      },
+      }
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: 'dependency'
     }),
     new ScriptExtHtmlWebpackPlugin({
       // `runtime` must same as runtimeChunk name. default is `runtime`
@@ -112,9 +111,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     minimizer: [
       new UglifyJsPlugin({
         uglifyOptions: {
-          mangle: {
-            safari10: true
-          }
+          mangle: false
         },
         sourceMap: config.build.productionSourceMap,
         cache: true,
@@ -122,7 +119,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       }),
       // Compress extracted CSS. We are using this plugin so that possible
       // duplicated CSS from different components can be deduped.
-      new OptimizeCSSAssetsPlugin()
+      new OptimizeCSSPlugin()
     ]
   }
 })
