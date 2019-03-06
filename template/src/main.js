@@ -5,7 +5,7 @@
 import Vue from 'vue'
 {{#vuex}}
 import Vuex from 'vuex'
-import stores from './stores'
+import store from './stores'
 {{/vuex}}
 import App from './App'
 {{#router}}
@@ -17,11 +17,6 @@ import '@/permission' // permission control
 Vue.config.productionTip = false
 // 注册filter
 Object.keys(filters).forEach(k => Vue.filter(k, filters[k]))
-
-{{#vuex}}
-Vue.use(Vuex)
-const store = new Vuex.Store(stores)
-{{/vuex}}
 
 /* eslint-disable no-new */
 const vRouter = new Vue({
