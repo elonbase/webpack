@@ -20,8 +20,8 @@ const routes = [
   }
 ]
 
-const router =  new VueRouter({
-  mode:'hash',
+const router = new VueRouter({
+  mode: 'hash',
   routes
 })
 
