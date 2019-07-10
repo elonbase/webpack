@@ -4,7 +4,6 @@
 {{/if_eq}}
 import Vue from 'vue'
 {{#vuex}}
-import Vuex from 'vuex'
 import store from './stores'
 {{/vuex}}
 import App from './App'

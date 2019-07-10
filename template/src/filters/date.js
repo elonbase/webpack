@@ -19,7 +19,7 @@ export const formatDate = time => {
 }
 
 export const formatTime =  time => {
-  if(time == null || time == ''){
+  if(time === null || time === ''){
     return ''
   }
   let tmpDate = new Date(time)
