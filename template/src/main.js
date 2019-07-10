@@ -11,7 +11,7 @@ import App from './App'
 {{#router}}
 import router from './router'
 {{/router}}
-import * as filters from './filters'
+import filters from './filters'
 import '@/permission' // permission control
 
 Vue.config.productionTip = false
