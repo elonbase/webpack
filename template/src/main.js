@@ -4,26 +4,21 @@
 {{/if_eq}}
 import Vue from 'vue'
 {{#vuex}}
-import Vuex from 'vuex'
-import stores from './stores'
+import store from './stores'
 {{/vuex}}
 import App from './App'
 {{#router}}
 import router from './router'
 {{/router}}
-import * as filters from './filters'
+import filters from './filters'
+import '@/permission' // permission control
 
 Vue.config.productionTip = false
-//注册filter
+// 注册filter
 Object.keys(filters).forEach(k => Vue.filter(k, filters[k]))
 
-{{#vuex}}
-Vue.use(Vuex)
-const store = new Vuex.Store(stores)
-{{/vuex}}
-
 /* eslint-disable no-new */
-new Vue({
+const vRouter = new Vue({
   el: '#app',
   {{#router}}
   router,
@@ -36,9 +31,13 @@ new Vue({
   {{/if_eq}}
   {{#if_eq build "standalone"}}
   components: { App },
-  template: '<App/>',
   data: {
-    eventHub: new Vue() //global event bus
-  }
+    eventHub: new Vue() // global event bus
+  },
+  template: '<App/>'
   {{/if_eq}}
+})
+
+Vue.use({
+  vRouter
 })

@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Index from '@/views/index'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'HelloWorld',
-    component: HelloWorld,
+    name: 'Index',
+    component: Index
     // children: [
     //   {
     //     path: 'child',
@@ -21,26 +21,9 @@ const routes = [
   }
 ]
 
-const router =  new VueRouter({
-  mode:'hash',
+const router = new VueRouter({
+  mode: 'hash',
   routes
-})
-
-router.beforeEach((to, from, next) => {
-  if (to.matched.some(r => r.meta.requireAuth)) {
-    if (cookie.get('token')) {
-      next();
-    }
-    else {
-      next({
-        path: '/login',
-        query: {redirect: to.fullPath}
-      })
-    }
-  }
-  else {
-    next();
-  }
 })
 
 export default router

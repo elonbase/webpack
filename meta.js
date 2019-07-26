@@ -6,6 +6,8 @@ const {
   installDependencies,
   runLintFix,
   printMessage,
+  installCommitizen,
+  initCZCommitizen
 } = require('./utils')
 const pkg = require('./package.json')
 
@@ -106,6 +108,11 @@ module.exports = {
         },
       ],
     },
+    multipleServer:{
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'multiple server build?',
+    },
     unit: {
       when: 'isNotTest',
       type: 'confirm',
@@ -161,6 +168,11 @@ module.exports = {
         },
       ],
     },
+    useCommitizen:{
+      when: 'isNotTest',
+      type: 'confirm',
+      message: 'use Commitizen to commit code?',
+    }
   },
   filters: {
     '.eslintrc.js': 'lint',
@@ -175,6 +187,7 @@ module.exports = {
     'test/unit/setup.js': "unit && runner === 'jest'",
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',
+    'src/stores/**/*':'vuex'
   },
   complete: function(data, { chalk }) {
     const green = chalk.green
@@ -196,6 +209,16 @@ module.exports = {
         })
     } else {
       printMessage(data, chalk)
+    }
+
+    if (data.useCommitizen) {
+      installCommitizen(cwd, data, green)
+        .then(() => {
+          initCZCommitizen(cwd, data, green)
+        })
+        .catch(e => {
+          console.log(chalk.red('Error:'), e)
+        })
     }
   },
 }
